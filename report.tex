@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage[UTF8]{ctex}
+\usepackage{fancyhdr}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage[a4paper, includehead]{geometry}
+\geometry{
+  left=27mm,
+  right=27mm,
+  top=25.4mm, 
+  bottom=25.4mm,
+  heightrounded,
+}
+\usepackage[style=numeric,
+            sorting=none,
+            bibstyle=gb7714-2015,
+            citestyle=gb7714-2015]{biblatex}
+\bibliography{ref.bib}
+
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage[colorlinks,linkcolor=black] {hyperref}
+
+\renewcommand{\contentsname}{\centering {目录}}
+\renewcommand{\today}{\number\year 年\number\month 月 \number\day 日}
+\newcommand{\mytitle}{报告标题}
+\newcommand{\mysubtitle}{报告副标题}
+
+\linespread{1.5}
+\lhead{\mysubtitle}
+\rhead{\mytitle}
+\cfoot{\thepage}
+
+\begin{document}
+\pagestyle{empty}
+\vskip 40mm
+\begin{center}
+    \includegraphics[width=0.65\paperwidth]{assets/zjuchar.pdf} \\
+    \vskip 10mm
+    \centering
+    \includegraphics[width=0.3\paperwidth]{assets/zju.pdf}
+\end{center}
+\vskip 10mm
+\begin{center}
+    \zihao{-1} \textbf{\mytitle} \\
+    \zihao{2} \textbf{\mysubtitle}
+\end{center}
+\vskip 10mm
+\begin{center}
+    \zihao{3}
+    \begin{tabularx}{.7\textwidth}{>{\fangsong}l >{\fangsong}X<{\centering}}
+        姓名与学号 & \uline{\hfill 姓名 12345678 \hfill} \\
+                %    & \uline{\hfill 如果多个人，可以再加 \hfill} \\
+        年级与专业 & \uline{\hfill 2019级 计算机科学与技术 \hfill} \\
+    \end{tabularx}\\
+    \vskip 40mm
+    \today
+\end{center}
+
+
+\clearpage
+\tableofcontents
+\clearpage
+
+%%%%%%%%%%%%
+% 正文
+%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\setcounter{page}{1}
+
+\section{H1}
+
+这里是H1下的内容
+
+\subsection{H2}
+
+这里是H2下的内容
+
+\subsubsection{H3}
+
+这里是H3下的内容
+
+这里是对图\ref{fig:zju}的引用
+
+这里是一个引用\cite{崔迪2017面向可视化系统设计与开发的嵌套增量模型}
+
+\begin{enumerate}
+    \item 列举1
+    \item 列举2
+    \item 列举3
+\end{enumerate}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{assets/zju_logo.png}
+    \caption{图片标题}
+    \label{fig:zju}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+
+% 如果需要显示没有引用到的才看文献，使用\nocite{}
+\nocite{梅鸿辉2016一种全球尺度三维大气数据可视化系统}
+\printbibliography
+
+\end{document}
